@@ -1,106 +1,92 @@
-# 🎙️ Speech Emotion Recognition using CNN & Librosa
+# Emotion Detection from Speech using RAVDESS Dataset 🎤😄😢
 
-This deep learning project detects human **emotions** from audio speech samples using **Convolutional Neural Networks (CNN)** and **MFCC features** extracted with **Librosa**. It classifies audio into emotions such as **happy**, **sad**, **angry**, and more — making it a core module in affective computing systems.
-
----
-
-## 🗣️ Audio Emotion Examples
-
-### 🔊 Sample Audio Input  
-<video src="https://github.com/user-attachments/assets/your_audio_input_placeholder.mp3" width="400" controls></video>
-
-### 🤖 Predicted Emotion Output  
-`Prediction: Happy 😊`
-
-> 🎧 Dataset: [RAVDESS - Ryerson Audio-Visual Database of Emotional Speech and Song](https://zenodo.org/record/1188976)
+This project is a deep learning-based Emotion Classifier that classifies emotions from speech using the **RAVDESS** dataset. It processes `.wav` audio files, extracts MFCC features, and uses a CNN-LSTM hybrid model for emotion classification.
 
 ---
 
-## ⚙️ How It Works
+## 📁 Dataset
 
-1. Load RAVDESS speech audio files
-2. Extract **MFCC (Mel-frequency cepstral coefficients)** using Librosa
-3. Normalize and reshape data
-4. Train a **Convolutional Neural Network (CNN)** to classify emotions
-5. Evaluate and save the model for inference
-
----
-
-## 🧠 Emotions Recognized
-
-- Neutral 😐  
-- Calm 😌  
-- Happy 😀  
-- Sad 😢  
-- Angry 😠  
-- Fearful 😨  
-- Disgusted 🤢  
-- Surprised 😲
+- **Name:** RAVDESS (Ryerson Audio-Visual Database of Emotional Speech and Song)
+- **Classes:** 
+  - neutral, calm, happy, sad, angry, fearful, disgust, surprised
+- **Format:** `.wav` audio files organized by actor folders
+- **Download:** Already uploaded as `Audio_Speech_Actors_01-24.zip`
 
 ---
 
-## 🧠 Technologies Used
+## 🧠 Model Architecture
 
-- Python 3  
-- Librosa  
-- NumPy  
-- TensorFlow / Keras  
-- Matplotlib  
-- Sklearn  
+- **Feature Extraction:** MFCC (Mel-frequency cepstral coefficients)
+- **Model:** CNN + LSTM
+- **Loss:** Categorical Crossentropy
+- **Optimizer:** Adam
 
 ---
 
-## 📦 Requirements
+## 🛠️ Requirements
+
+Install required Python libraries using:
 
 ```bash
-librosa
-numpy
-tensorflow
-scikit-learn
-matplotlib
-Install them using:
-pip install -r requirements.txt
+pip install librosa numpy matplotlib scikit-learn tensorflow
+```
 
-📁 Project Structure
-File / Folder	Description
-speech_emotion_recognition.py	Main script for model training and evaluation
-predict_emotion.py	Script to load a model and predict emotion from new audio
-Audio_Speech_Actors_01-24/	Extracted RAVDESS dataset folder
-model.h5	Saved trained Keras model
-requirements.txt	Required Python packages
-README.md	Project documentation
+---
 
-🚀 How to Run
-bash
-Copy
-Edit
-pip install -r requirements.txt
-python speech_emotion_recognition.py
-Make sure the Audio_Speech_Actors_01-24/ folder is in the same directory after extracting the RAVDESS dataset.
+## ▶️ How to Run
 
-To make predictions:
+1. **Upload & Extract Dataset**
+   - Upload `Audio_Speech_Actors_01-24.zip` to your environment
+   - Extract it using:
+     ```python
+     import zipfile
+     with zipfile.ZipFile("Audio_Speech_Actors_01-24.zip", 'r') as zip_ref:
+         zip_ref.extractall("/mnt/data/Audio_Speech_Actors_01-24")
+     ```
 
-bash
-Copy
-Edit
-python predict_emotion.py --file path_to_your_audio.wav
-🧪 Sample Results
-Audio File Name	Actual Emotion	Predicted Emotion
-03-01-05-01-01-01-01.wav	Angry	Angry
-03-01-02-01-02-01-05.wav	Calm	Neutral
-03-01-06-02-01-02-03.wav	Fearful	Fearful
+2. **Load and Preprocess Data**
+   - Uses MFCC features
+   - Encodes labels
 
-🔭 Future Enhancements
-Add real-time microphone input emotion detection
+3. **Train the Model**
+   - Split into train and test sets
+   - Train CNN + LSTM model
 
-Improve model with RNNs/LSTMs for better temporal analysis
+4. **Evaluate**
+   - Accuracy and loss metrics
+   - Visualize using confusion matrix
 
-Support multi-language speech recognition
+---
 
-Build a web app or REST API for deployment
+## 📊 Results
 
-👨‍💻 Author
-Muhammad Rayan Shahid
-AI & ML Enthusiast | LinkedIn | GitHub
+- **Training Accuracy:** ~XX% (Replace with actual value)
+- **Test Accuracy:** ~YY% (Replace with actual value)
 
-⭐ If you found this project useful, please consider starring the repository!
+---
+
+## 📈 Visualizations
+
+- **Confusion Matrix**
+- **Model Accuracy & Loss Graphs**
+
+---
+
+## 🔍 Future Improvements
+
+- Add real-time microphone input prediction
+- Integrate with a chatbot/emotion-aware system
+- Improve model generalization
+
+---
+
+## 🤖 Author
+
+**Muhammad Rayan Shahid**  
+AI Enthusiast | YouTuber at [ByteBrilliance AI](https://www.youtube.com/@ByteBrillianceAI)
+
+---
+
+## ⭐ GitHub Repo
+
+Stay tuned for more projects on AI, ML, DL, and Computer Vision!
